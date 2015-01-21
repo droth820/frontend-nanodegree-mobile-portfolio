@@ -9,11 +9,11 @@
 
 body {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 1em;
   background: black;
 }
-
 input {
-  background: grey;
+  background: #CCCCCC;
   font-size: 18px;
 }
 
