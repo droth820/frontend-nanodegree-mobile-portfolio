@@ -501,11 +501,12 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-
+  //var transformProperty = Modernizr.prefixed('transform');
   var items = document.querySelectorAll('.mover');
   for (var i = 5; i < items.length; i++) {
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    //items[i].style(transformProperty) = 'translateX(' + items[i].basicLeft + 100 * phase + 'px)';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -517,9 +518,27 @@ function updatePositions() {
     logAverageFrame(timesToUpdatePosition);
   }
 }
+function callback() {
+  console.count("Throttled");
+}
 
+window.addEventListener('scroll', throttle(callback, 200));
+
+function throttle(callback, limit) {
+  var wait = false;
+  return function() {
+    if(!wait) {
+      callback.call();
+      wait = true;
+      setTimeout(function(){
+        wait = false;
+      }, limit);
+    }
+  }
+}
 // runs updatePositions on scroll
-window.addEventListener('scroll', updatePositions);
+//window.addEventListener('scroll',throttle(updatePositions, 16));
+//window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
