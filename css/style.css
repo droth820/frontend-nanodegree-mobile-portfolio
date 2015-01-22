@@ -14,7 +14,7 @@ img { border: 0; max-width: 100%; }
 .img-responsive {
   display: block;
   width: 100%;
-  max-width: 15%;
+  max-width: 25%;
   height: auto;
 }
 
