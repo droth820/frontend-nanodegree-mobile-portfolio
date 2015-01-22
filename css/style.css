@@ -11,6 +11,12 @@ b, strong { font-weight: bold; }
 pre, code { font-family: monospace, monospace; font-size: 1em; }
 ul, ol{margin: 1em; padding: 0 0 0 20px;}
 img { border: 0; max-width: 100%; }
+.img-responsive {
+  display: block;
+  width: 100%;
+  max-width: 15%;
+  height: auto;
+}
 
 body { background: #fff; }
 header, footer, .container { max-width: 45em; margin: 0 auto; }
