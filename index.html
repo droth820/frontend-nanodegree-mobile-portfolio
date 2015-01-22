@@ -6,7 +6,6 @@
     <meta name="description" content=" FILL ME IN ">
     <meta name="author" content=" FILL ME IN ">
     <title>Cameron Pittman: Portfolio</title>
-    <link href="css/style.css" rel="stylesheet">
     <link href="css/print.css" rel="stylesheet" media="print">
     <link href="css/portrait.css" rel="stylesheet">
     <style type="text/css">
@@ -21,6 +20,16 @@
       <img src="https://media.licdn.com/mpr/mpr/shrink_200_200/p/7/005/059/12e/0ae9526.jpg" width="70" height="70" alt="profile picture">
       <p>Cameron Pittman<br><span>Course Developer</span></p>
     </header>
+    <script>
+      var cb = function() {
+        var x = document.createElement('link'); x.rel = 'stylesheet';
+        x.href = 'css/style.css';
+        var y = document.getElementsByTagName('head')[0]; y.parentNode.insertBefore(x,y);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
+    </script>
 
     <div class="container">
       <div class="hero">
