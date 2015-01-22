@@ -35,4 +35,9 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: none;
 }
+/* Smartphones (portrait) */
+@media only screen and (max-width: 480px) {
+  body { font-size: 12px;}
+  header p { padding-left: 4.5em;}
+}
 
