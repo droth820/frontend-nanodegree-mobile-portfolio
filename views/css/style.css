@@ -12,6 +12,39 @@ body {
   font-size: 1em;
   background: black;
 }
+
+
+.container {
+  background-color: rgba(240, 60, 60, 0.8);
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.centered {
+  text-align: center;
+}
+
+.col-md-4, .col-md-6, .col-md-8, .col-md-12 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+img {
+  vertical-align: middle;
+  content: url("images/pizza.png");
+}
+
+.img-responsive {
+  display: block;
+  width: 100% \9;
+  max-width: 100%;
+  height: auto;
+}
+
 input {
   background: #CCCCCC;
   font-size: 18px;
@@ -19,16 +52,37 @@ input {
 form {
   display: inline-block;
 }
-.container {
-  background-color: rgba(240, 60, 60, 0.8);
+
+.large{
+  width: 585px;
 }
 
-.centered {
-  text-align: center;
+.large img {
+  content: url("images/pizza.png");
 }
 
-#pizzaSize {
-  font-weight: 800;
+@media (min-width: 768px) {
+  .container {
+  width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+  width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+  width: 1170px;
+  }
+}
+
+.medium {
+  width: 389.961px;
+}
+
+.medium img {
+  content: url("images/pizzaMd.png");
 }
 
 .mover {
@@ -37,9 +91,15 @@ form {
   z-index: -1;
 }
 
+#pizzaSize {
+  font-weight: 800;
+}
+
 .randomPizzaContainer {
   float: left;
   display: flex;
+  width: 325px;
+  height: 325px;
 }
 
 .randomPizzaContainer:after {
@@ -47,4 +107,23 @@ form {
   display: table;
   clear:both;
 }
+
+.small {
+  width: 292.5px;
+}
+
+.small img {
+  content: url("images/pizzaSm.png");
+}
+
+
+
+
+
+
+
+
+
+
+
 
