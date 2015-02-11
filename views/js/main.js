@@ -373,7 +373,8 @@ var pizzaElementGenerator = function(i) {
   pizzaDescriptionContainer = document.createElement("div");
 
   pizzaContainer.classList.add("randomPizzaContainer");
-  pizzaContainer.id = "pizza" + i; // gives each pizza element a unique id
+  pizzaContainer.classList.add("medium");
+  
   pizzaImageContainer.classList.add("col-md-6");
 
   //Set the image source to use the Md pizza by default
@@ -398,8 +399,34 @@ var pizzaElementGenerator = function(i) {
 }
 
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
-var resizePizzas = function(size) { 
-  window.performance.mark("mark_start_resize");   // User Timing API function
+function resizePizzas(size) { 
+  var divList = document.querySelectorAll(".randomPizzaContainer");
+  for (var i = 0; i < 100; i++){
+    var div = divList[i];
+    if (div.classList.contains("small")){
+       div.classList.remove("small");
+          if (size == '2'){
+            div.classList.add("medium");
+          } else {
+            div.classList.add('large');
+          }
+        } else if (div.classList.contains("medium")){
+          div.classList.remove("medium");
+          if (size =='1'){
+            div.classList.add("small");
+          } else {
+            div.classList.add('large');
+          }
+        } else {
+          div.classList.remove("large");
+          if (size == '1'){
+            div.classList.add("small");
+          } else {
+            div.classList.add("medium");
+          }
+        }
+      }
+ 
 
   // Changes the value for the size of the pizza above the slider
   function changeSliderLabel(size) {
@@ -448,7 +475,7 @@ var resizePizzas = function(size) {
   }
 
   // Iterates through pizza elements on the page and changes their widths
-  function changePizzaSizes(size) {
+ /* function changePizzaSizes(size) {
     for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
       var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
       var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
@@ -456,7 +483,7 @@ var resizePizzas = function(size) {
     }
   }
 
-  changePizzaSizes(size);
+  changePizzaSizes(size);*/
 
   // User Timing API is awesome
   window.performance.mark("mark_end_resize");
